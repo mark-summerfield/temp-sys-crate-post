@@ -9,7 +9,7 @@ Fortunately, all this work can be done once in a [build script](https://doc.rust
 To make a sys crate:
 
   0. Read [the Cargo build script documentation](https://doc.rust-lang.org/cargo/reference/build-scripts.html).
-  1. Create a new Cargo crate `cargo new <library name>-sys`
+  1. Create a new Cargo crate `cargo new --lib <library name>-sys`
   2. In `Cargo.toml` add `links = <library name>`.
      This informs Cargo that this crate links with the given C library, and Cargo will ensure that only one copy of the library is linked. Use names without any prefix/suffix (without prefix/suffix, so `florp`, not `libflorp.so`). Note that [`links`](https://doc.rust-lang.org/cargo/reference/build-scripts.html#the-links-manifest-key) is only informational and it does not actually link to anything.
   3. Create [`build.rs`](https://doc.rust-lang.org/cargo/reference/manifest.html#the-build-field-optional) file in the root of the project (or specify `build = "<path to build.rs>"` in `Cargo.toml`).
